@@ -1,0 +1,17 @@
+.sidenav-container {
+  height: 100vh;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 16px;
+}
+
+mat-sidenav {
+  width: 250px;
+  background-color: #424242;  /* Color oscuro para el sidenav */
+  color: white;  /* Texto en blanco para mayor contraste */
+}

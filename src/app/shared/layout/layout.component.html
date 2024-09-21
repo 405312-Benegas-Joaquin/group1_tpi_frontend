@@ -1,0 +1,25 @@
+<mat-sidenav-container class="sidenav-container">
+  <!-- Sidebar -->
+  <mat-sidenav mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item routerLink="/fines">Multas</mat-list-item>
+      <mat-list-item routerLink="/constructions"
+        >Gestión de obras</mat-list-item
+      >
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content>
+    <!-- Navbar -->
+    <mat-toolbar color="primary">
+      <span class="spacer"></span>
+      <span>{{ userName }}</span>
+    </mat-toolbar>
+
+    <!-- Routing Content -->
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
