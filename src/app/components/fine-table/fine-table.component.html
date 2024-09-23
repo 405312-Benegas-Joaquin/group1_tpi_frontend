@@ -1,0 +1,48 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="fines" class="mat-table" matSort>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let fine">{{ fine.id }}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+      <td mat-cell *matCellDef="let fine">{{ fine.description }}</td>
+    </ng-container>
+
+    <!-- Moderation State Column -->
+    <ng-container matColumnDef="moderationState">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Moderation State
+      </th>
+      <td mat-cell *matCellDef="let fine">{{ fine.moderationState }}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+      <td mat-cell *matCellDef="let fine">{{ fine.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let fine">
+        <button mat-flat-button color="primary" (click)="viewDetail(fine.id)">Ver Detalle</button>
+      
+      </td>
+    </ng-container>
+
+    <!-- Header and Row Declarations -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <!-- Pagination Controls -->
+  <mat-paginator [length]="totalElements"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  (page)="pageChanged($event)">
+</mat-paginator>
+</div>

@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { FineDetailComponent } from './components/fine-detail/fine-detail.component';
 
 export const routes: Routes = [
   {
@@ -7,12 +8,15 @@ export const routes: Routes = [
     children: [
       {
         path: 'constructions',
-        loadComponent: () => import('./components/construction/construction.component'),
+        loadComponent: () =>
+          import('./components/construction/construction.component'),
       },
       {
         path: 'fines',
         loadComponent: () => import('./components/fine/fine.component'),
       },
+      { path: 'fine/:id', component: FineDetailComponent },
+
       {
         path: '',
         redirectTo: 'fines',
@@ -21,7 +25,7 @@ export const routes: Routes = [
       {
         path: '**',
         redirectTo: 'fines',
-      }
-    ]
+      },
+    ],
   },
 ];
