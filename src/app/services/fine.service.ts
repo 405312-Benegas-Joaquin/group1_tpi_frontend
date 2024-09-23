@@ -8,7 +8,7 @@ import { Fine } from '../models/fine.model';
   providedIn: 'root',
 })
 export class FineService {
-  private apiUrl = 'http://localhost:8080/fines'; // URL de tu BFF
+  private apiUrl = 'http://localhost:8080';
 
   private http: HttpClient = inject(HttpClient);
 
@@ -20,11 +20,17 @@ export class FineService {
 
     console.log('Por hacer el request');
 
-    return this.http.get<Page<Fine>>(this.apiUrl, { params }).pipe(
-      catchError((error) => {
-        console.error('Error en la solicitud:', error);
-        return of(null); // O maneja el error de otra manera
-      })
-    );
+    return this.http
+      .get<Page<Fine>>(`${this.apiUrl}/pageable/fine`, { params })
+      .pipe(
+        catchError((error) => {
+          console.error('Error en la solicitud:', error);
+          return of(null); // O maneja el error de otra manera
+        })
+      );
+  }
+
+  getFineById(id: number) {
+    return this.http.get<Fine>(`${this.apiUrl}/fine/${id}`);
   }
 }
