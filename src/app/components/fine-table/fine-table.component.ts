@@ -32,7 +32,7 @@ export class FineTableComponent {
     this.loadFines(this.pageNumber, this.pageSize);
   }
 
-  // Método para cargar datos paginados
+  // Method para cargar datos paginados
   loadFines(page: number, size: number) {
     this.fineService.getFines(page, size).subscribe((data) => {
       if (data) {
