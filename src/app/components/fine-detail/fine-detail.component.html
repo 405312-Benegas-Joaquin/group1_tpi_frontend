@@ -1,7 +1,5 @@
 @if (fine) {
 
-    
-
 <mat-card>
   <mat-card-header>
     <mat-card-title>Detalles de la Multa</mat-card-title>
@@ -10,7 +8,7 @@
 
   <mat-card-content>
     <div><strong>Descripción:</strong> {{ fine.description }}</div>
-    <div><strong>Precio:</strong> {{ fine.price | currency:'ARS' }}</div>
+    <div><strong>Precio:</strong> {{ fine.price | currency : "ARS" }}</div>
     <div><strong>Estado de Moderación:</strong> {{ fine.moderationState }}</div>
     <div><strong>Creado por:</strong> {{ fine.createdBy }}</div>
     <div>
@@ -22,8 +20,6 @@
       {{ fine.lastUpdatedAt | date : "short" }} por {{ fine.lastUpdatedBy }}
     </div>
   </mat-card-content>
-
-
 </mat-card>
 
 }
