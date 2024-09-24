@@ -7,6 +7,10 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, NgModel } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatOption } from '@angular/material/core';
+import { MatTable, MatTableModule } from '@angular/material/table';
+import { MatDivider } from '@angular/material/divider';
+import { MatIcon } from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-fine-detail',
@@ -20,6 +24,9 @@ import { MatOption } from '@angular/material/core';
     MatFormField,
     MatLabel,
     MatOption,
+    MatTableModule,
+    MatDivider,
+    MatButton,
   ],
 })
 export class FineDetailComponent {
@@ -28,6 +35,12 @@ export class FineDetailComponent {
   private fineService = inject(FineService);
   private route = inject(ActivatedRoute);
   states: string[] = ['Pending', 'Approved', 'Rejected'];
+  displayedColumns: string[] = [
+    'id',
+    'description',
+    'infractionState',
+    'actions',
+  ];
 
   ngOnInit() {
     this.fineId = +this.route.snapshot.paramMap.get('id')!;

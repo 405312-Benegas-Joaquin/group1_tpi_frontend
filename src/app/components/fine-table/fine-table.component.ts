@@ -4,11 +4,12 @@ import { Fine } from '../../models/fine.model';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-fine-table',
   standalone: true,
-  imports: [MatTableModule, MatPaginatorModule],
+  imports: [MatTableModule, MatPaginatorModule, MatButton],
   templateUrl: './fine-table.component.html',
   styleUrl: './fine-table.component.css',
 })
